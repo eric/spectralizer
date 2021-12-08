@@ -23,6 +23,10 @@ jobs:
       project-git: spectralizer
       project-name: spectralizer
     steps:
+      - name: Get Current Arch
+        shell: bash
+        id: get_arch
+        run: echo "CURRENT_ARCH=$(uname -m)" >> $GITHUB_ENV
       - name: Checkout plugin
         uses: actions/checkout@v2
         with:
